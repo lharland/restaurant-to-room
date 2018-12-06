@@ -1,0 +1,31 @@
+<div class="textwidget margin-top-30">
+    <h1 ng-bind="vm.restaurant.name"></h1>
+</div>
+<div class="widget">
+    <strong ng-show="!vm.restaurant">Loading...</strong>
+    <input type="submit" value="Checkout" ng-show="vm.items.length > 0" ng-click="vm.checkout()" />
+    <div ng-repeat="cat in vm.restaurant.menu" class="category">
+        <h2 ng-bind="cat.name"></h2>
+        <ul>
+            <li ng-repeat="item in cat.children">
+                <strong ng-click="vm.viewItem(item)" ng-bind="item.name" style="cursor:pointer;"></strong>
+                - <span ng-bind="item.price"></span> - 
+                <em ng-bind="item.descrip"></em>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/ng-template" id="item.html">
+    <h1 ng-bind="vm.activeItem.name"></h1>
+    <div ng-repeat="optionType in vm.activeItem.children">
+        <strong ng-bind="optionType.name"></strong>
+        <ul>
+            <li ng-repeat="option in optionType.children">
+                <input type="checkbox" ng-click="vm.toggleOption(option)" />
+                <span ng-bind="option.name + ' - ' + option.price" />
+            </li>
+        </ul>
+    </div>
+    <button ng-click="vm.addItem(vm.activeItem)">Add to order</button>
+	<button ng-click="vm.cancel()">Cancel</button>
+</script>

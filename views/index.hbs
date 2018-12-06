@@ -1,0 +1,27 @@
+<div class="textwidget margin-top-30">
+	<p>No matter what you're craving, <em><strong>Restaurant to Room</strong></em> has you covered. Our fast and friendly delivery service brings you hot, fresh food, from a diverse choice of local restaurants.</p>
+	<p>Simply create an account to get started, select items from a menu, and we'll have food delivered directly to your room, within an hour, or your meal is free. The only difficult part is choosing.  (Sorry, we can't help you with that.)</p>
+</div>
+<div class="widget">
+	<form name="login-form" id="login-form" method="post" action="users/login">
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required />
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required />
+		</div>
+		<div class="form-group">
+			<label for="rememberMe">Remember me</label>
+			<input type="checkbox" id="rememberMe" name="rememberMe" />
+		</div>
+		<div class="form-submit">
+			<input type="submit" value="Log in" />
+			<div style="color:red;">{{error}}</div>
+			<div class="margin-top-30">
+				or <a href="/users/create">Create an account</a>
+			</div>
+		</div>												
+	</form>
+</div>

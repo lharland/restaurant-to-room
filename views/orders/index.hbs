@@ -1,0 +1,21 @@
+<div ng-app="app">
+	<div ng-view></div>	
+</div>
+<script src="/bower/angular/angular.min.js"></script>
+<script src="/bower/angular-route/angular-route.min.js"></script>
+{{#if settings.production}}
+<script src="/js/build/rtr.min.js?v=2"></script>
+{{else}}
+<script src="/js/app/app.js"></script>
+<script src="/js/app/route-config.js"></script>
+<script src="/js/app/restaurants/restaurants.js"></script>
+<script src="/js/app/menu/menu.js"></script>
+<script src="/js/app/payment/payment.js"></script>
+<script src="/js/app/confirmation/confirmation.js"></script>
+<script src="/js/app/payment/creditcard.directive.js"></script>
+<script src="/js/app/services/api-service.js"></script>
+<script src="/js/app/services/cart-service.js"></script>
+{{/if}}
+<script src="/bower/ngDialog/js/ngDialog.min.js"></script>
+<link href="/bower/ngDialog/css/ngDialog.min.css" rel="stylesheet" />
+<link href="/bower/ngDialog/css/ngDialog-theme-default.min.css" rel="stylesheet" />

@@ -1,0 +1,75 @@
+<div class="textwidget margin-top-30">
+    <h1>Payment Information</h1>
+</div>
+<div class="widget">
+    <form method="post" name="paymentForm" novalidate ng-submit="paymentForm.$valid && vm.submit()">
+        <div class="form-group">
+            <label for="cardType">Card type</label>
+            <select name="cardType" id="cardType" ng-model="vm.card.type">
+                <option value=""></option>
+                <option value="visa">Visa</option>
+                <option value="master">MasterCard</option>
+                <option value="amex">American Express</option>
+                <option value="discover">Discover</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cardNumber">Card number</label>
+            <input type="text" name="cardNumber" id="cardNumber" ng-model="vm.card.number" required credit-card />
+        </div>
+        <div class="form-group">
+            <label for="cardCode">Security code</label>
+            <input type="text" name="cardCode" id="cardCode" ng-model="vm.card.code" ng-minlength="3" ng-maxlength="4" />
+        </div>
+        <div class="form-group">
+            <label for="expirationMonth">Expiration</label>
+            <select name="expirationMonth" id="expirationMonth" ng-model="vm.card.expirationMonth">
+                <option value=""></option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            /
+            <select name="expirationYear" ng-model="vm.card.expirationYear">
+                <option value=""></option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="zip">Billing zip</label>
+            <input type="text" name="zip" id="zip" ng-model="vm.card.zip" />
+        </div>
+        <div>
+            <input type="submit" value="Place Order" />
+            <span ng-show="vm.showProgress">Placing order...</span>
+        </div>
+        <div ng-show="paymentForm.$submitted" style="color:red;">
+            <div ng-show="paymentForm.cardNumber.$error.required">Please enter your credit card number.</div>
+            <div ng-show="paymentForm.cardCode.$error.minlength || paymentForm.cardCode.$error.maxlength">
+                Card code should be 3-4 digits
+            </div>
+            <div ng-show="paymentForm.cardNumber.$error.creditCard">
+                Not a valid card number
+            </div>
+        </div>            
+    </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="textwidget margin-top-30">
+	<p>No matter what you're craving, <em><strong>Restaurant to Room</strong></em> has you covered. Our fast and friendly delivery service brings you hot, fresh food, from a diverse choice of local restaurants.</p>
+</div>
+<div class="widget">
+	<strong ng-show="!vm.restaurants">Loading...</strong>
+	<ul>
+		<li ng-repeat="rest in vm.restaurants | orderBy:'na'">
+		    <a title="Dinner Destiny" ng-href="#/menu/{{rest.id}}">
+		        <strong ng-bind="rest.na"></strong> 
+		        <span ng-show="rest.cu" ng-bind="'(' + rest.cu + ')'" class="cusines">(American)</span>
+		    </a>
+	    </li>
+	</ul>
+</div>
