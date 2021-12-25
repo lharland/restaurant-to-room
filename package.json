@@ -9,24 +9,24 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "bcrypt": "^3.0.2",
-    "body-parser": "~1.19.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "~1.19.1",
     "connect-flash": "^0.1.1",
-    "connect-mongo": "^3.2.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~4.1.0",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "hbs": "~4.1.0",
-    "mongoose": "^5.7.5",
-    "morgan": "^1.9.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.3",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "hbs": "~4.2.0",
+    "mongoose": "^6.1.3",
+    "morgan": "^1.10.0",
     "ordrin-api": "^1.0.2",
-    "passport": "^0.4.0",
+    "passport": "^0.5.2",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.2"
   }
 }

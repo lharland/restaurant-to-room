@@ -2,7 +2,7 @@ var ordrx = require('ordrin-api');
 var config = require('../config');
 var Order = require('../models/order').Order;
 
-var api = new ordrx.APIs(config.ordrxKey, ordrx.TEST);
+//var api = new ordrx.APIs(config.ordrxKey, ordrx.TEST);
 
 exports.getRestaurants = function(next) {
   var hotel = config.address;
@@ -12,25 +12,27 @@ exports.getRestaurants = function(next) {
     city: hotel.city,
     zip: hotel.zip
   }
-  api.delivery_list(args, function(err, restaurants) {
-    if (err) {
-      console.log(err);
-      return next(err);
-    }
-    restaurants = restaurants.filter(function(rest) {
-      return rest.is_delivering; 
-    });
-    next(null, restaurants);
-  });
+  // api.delivery_list(args, function(err, restaurants) {
+  //   if (err) {
+  //     console.log(err);
+  //     return next(err);
+  //   }
+  //   restaurants = restaurants.filter(function(rest) {
+  //     return rest.is_delivering; 
+  //   });
+  //   next(null, restaurants);
+  // });
+  next(null, [])
 };
 
 exports.getRestaurantDetails = function(restId, next) {
-  api.restaurant_details({rid: restId}, function(err, details) {
-    if (err) {
-      console.log(err);
-    }  
-    next(err, details);
-  });
+  // api.restaurant_details({rid: restId}, function(err, details) {
+  //   if (err) {
+  //     console.log(err);
+  //   }  
+  //   next(err, details);
+  // });
+  next(err, [])
 };
 
 exports.createOrder = function(user, food, next) {
@@ -92,16 +94,17 @@ exports.placeOrder = function(order_id, card, next) {
       delivery_date: 'ASAP'
     };
     
-    api.order_guest(args, function(err, result) {
-      if (!err) {
-        console.log(result);
-        order.refnum = result.refnum;
-        return order.save(function(err) {
-          next(null, {success:true});
-        });  
-      }
-      console.log(err);
-      next(err, {success:false});
-    })
+    // api.order_guest(args, function(err, result) {
+    //   if (!err) {
+    //     console.log(result);
+    //     order.refnum = result.refnum;
+    //     return order.save(function(err) {
+    //       next(null, {success:true});
+    //     });  
+    //   }
+    //   console.log(err);
+    //   next(err, {success:false});
+    // })
+    next(null, {success:true});
   });  
 };
